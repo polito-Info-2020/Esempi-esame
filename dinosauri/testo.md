@@ -26,7 +26,9 @@ Il programma deve:
  - giocare la carta girata dal secondo giocatore in ogni mano e stamparla a video 
  - determinare il vincitore della mano, ed il punteggio corrente dei due giocatori.
 - al termine delle 15 mani, stampare il nome del vincitore e il punteggio totale ottenuto dal vincitore. 
- 
+
+## Esempio
+
 Ad esempio, supponendo di avere un mazzo di 6 carte, se il file `mazzo.txt` contiene le 
 seguenti carte:
 ``` 
