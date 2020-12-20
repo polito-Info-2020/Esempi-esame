@@ -46,8 +46,8 @@ def partita(carte1, carte2):
     punti1 = punti2 = 0
     tavolo = 0
     while len(carte1) > 0 and len(carte2) > 0:
-        c1 = carte1.pop()
-        c2 = carte2.pop()
+        c1 = carte1.pop(0)
+        c2 = carte2.pop(0)
         print(f'Giocatore 1: {c1} -- Giocatore 2: {c2}')
         tavolo = tavolo + PUNTEGGI[c1] + PUNTEGGI[c2]
         if c1 == c2:
