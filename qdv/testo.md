@@ -31,22 +31,27 @@ Si più assumere che il formato del file sia corretto.
 All'avvio il programma mostrerà l'elenco degli indicatori disponibili (nota: l'ordine non è importante):
 ```
 Indicatori della qualità della vita:
-1.
-2.
-3.
+ 1. Assegni sociali
+ 2. Assorbimento del settore residenziale
+ 3. Banda larga
+ 4. Bar
+ 5. Biblioteche
 ...ecc...
 ```
 
 In seguito, l'utente inserisce l'indicatore prescelto:
 ```
-Inserisci l'indicatore: 3
+Inserisci l'indicatore: 4
 ```
 
 A questo punto, il programma stamperà la classifica delle province secondo tale indicatore (dal valore più grande al più piccolo):
 ```
-Classifica secondo l'indicatore "XXXX":
-
-Valle d'Aosta: 999
-Napoli: 998
+Classifica secondo l'indicatore 'Bar': 
+Nuoro                  : 5.593614481
+Savona                 : 5.394207518
+Imperia                : 5.315095901
+Sassari                : 4.491109686
+Verbano-Cusio-Ossola   : 4.31869423
+Aosta                  : 4.111521024
 ...ecc...
 ```
