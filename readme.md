@@ -5,3 +5,4 @@
 - [Potenze del binomio](./potenze_binomio/)
 - [Statistiche sui comuni italiani](./statistiche_comuni/)
 - [Qualità della vita](./qdv/)
+- [Plotter](./plotter/)
