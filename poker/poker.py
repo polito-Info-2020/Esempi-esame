@@ -60,7 +60,7 @@ def estrai_5_carte(mazzo):
 
 
 def trova_combinazione(mano):
-    if is_colore(mano) and is_scala():
+    if is_colore(mano) and is_scala(mano):
         return "Scala Reale"
     elif ha_ripetuti(mano, 4):
         return "Poker"
@@ -164,7 +164,7 @@ def is_doppia_coppia(mano):
 def format_mano(mano):
     msg = ""
     for carta in mano:
-        msg += carta['valore'] + SEMI_UNICODE[carta['seme']] + ' '
+        msg += (' '+carta['valore'])[-2:] + SEMI_UNICODE[carta['seme']] + ' '
     return msg
 
 
