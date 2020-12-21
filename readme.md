@@ -6,3 +6,4 @@
 - [Statistiche sui comuni italiani](./statistiche_comuni/)
 - [Qualità della vita](./qdv/)
 - [Plotter](./plotter/)
+- [Poker](./poker/)
