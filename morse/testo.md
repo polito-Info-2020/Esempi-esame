@@ -18,7 +18,9 @@ G --.
 Su ogni linea, il primo carattere rappresenta il simbolo alfamumerico, ed è seguito dalla sequenza di punti e linee corrispondente, separati da uno spazio.
 
 Il programma richiede all'utente due informazioni:
+
 - se deve **c**odificare (da testo a Morse) o **d**ecodificare (da Morse a testo) un messaggio (`c`/`d`)
+  
 - il nome del file da codificare/decodificare. Tale file conterrà una sola linea di testo.
 
 Il programma dovrà quindi produrre sullo schermo la traduzione del file specificato.
