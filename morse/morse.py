@@ -1,6 +1,7 @@
 # Soluzione proposta esempio "Morse"
 
 FILE_MORSE = 'morse.txt'
+FILE_COMANDI = 'comandi.txt'
 
 
 def leggi_testo(nomefile):
@@ -58,20 +59,22 @@ def main():
         conversione_testo_morse[regola['testo']] = regola['morse']
         conversione_morse_testo[regola['morse']] = regola['testo']
 
-    op = ''
-    while op != 'c' and op != 'd':
-        op = input('Che operazione vuoi fare? codifica (c) o decodifica (d): ')
+    # leggiamo i comandi
+    comandi = open(FILE_COMANDI, 'r')
+    for riga in comandi:
+        op, file_name = riga.strip().split()
         op = op.strip().lower()
 
-    file_name = input('Nome del file da elaborare: ')
+        messaggio = leggi_testo(file_name)
 
-    messaggio = leggi_testo(file_name)
-
-    if op == 'c':
-        risultato = codifica(messaggio, conversione_testo_morse)
-    else:
-        risultato = decodifica(messaggio, conversione_morse_testo)
-    print('Messaggio tradotto:', risultato)
+        if op == 'c':
+            risultato = codifica(messaggio, conversione_testo_morse)
+            print(f'Codifica del file {file_name}:')
+            print(risultato)
+        else:
+            risultato = decodifica(messaggio, conversione_morse_testo)
+            print(f'Decodifica del file {file_name}:')
+            print(risultato)
 
 
 main()
