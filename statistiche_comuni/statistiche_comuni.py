@@ -1,7 +1,8 @@
 # Soluzione proposta esercizio d'esame "Statistiche Comuni"
 from typing import IO
 
-NOME_FILE = 'elenco-comuni-italiani.csv'
+FILE_COMUNI = 'elenco-comuni-italiani.csv'
+FILE_REGIONI_SCELTE = 'regioni.txt'
 
 
 def leggi_file():
@@ -13,7 +14,7 @@ def leggi_file():
     :return: L'elenco di tutti i comuni e la relativa regione di appartenenza
     """
     try:
-        file = open(NOME_FILE)
+        file = open(FILE_COMUNI)
     except IOError as error:
         print('Impossibile aprire il file:\n' + str(error))
         exit()
@@ -107,16 +108,22 @@ def più_lungo(nomi):
 def main():
     elenco = leggi_file()
 
-    regione = input('Inserisci una regione (*** per finire): ')
-    while regione != '***':
+    try:
+        regioni_scelte = open(FILE_REGIONI_SCELTE, 'r')
+    except IOError as ex:
+        print(f"Impossibile aprire il file {FILE_REGIONI_SCELTE}: {ex}")
+        exit()
+
+    for riga in regioni_scelte:
+        regione = riga.rstrip()
         if regione_valida(elenco, regione):
             comuni = comuni_della_regione(elenco, regione)
+            print(f'*** REGIONE {regione} ***')
             print(f'Nella regione {regione} ci sono {len(comuni)} comuni')
             print(f'Il nome più breve è {più_corto(comuni)} e quello più lungo è {più_lungo(comuni)}')
         else:
             print(f'Regione {regione} non valida')
 
-        regione = input('Inserisci una regione (*** per finire): ')
-
+    regioni_scelte.close()
 
 main()
