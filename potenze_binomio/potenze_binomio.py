@@ -120,19 +120,25 @@ def formatta_polinomio(grado, coeff):
 
 
 def main():
-    print('Potenze del binomio (ax+by)^N')
+    try:
+        infile = open('potenze.txt', 'r')
+    except IOError:
+        print('Impossibile aprire il file')
 
-    a = leggi_float('Inserisci a: ')
-    b = leggi_float('Inserisci b: ')
+    coefficienti = infile.readline().strip().split()
+    a = float(coefficienti[0])
+    b = float(coefficienti[1])
 
-    print(f'Calcolo le potenze  ({a}x + {b}y)^N')
+    print(f'Potenze del binomio ({a}x + {b}y)^N')
 
-    n = leggi_int('Inserisci N: ')
-    while n != 0:
-        coeff = coeff_potenza(a, b, n)
-        print('Risultato: ' + formatta_polinomio(n, coeff))
-
-        n = leggi_int('Inserisci N: ')
+    for line in infile:
+        try:
+            n = int(line)
+            coeff = coeff_potenza(a, b, n)
+            print(f'N = {n}')
+            print(formatta_polinomio(n, coeff))
+        except ValueError:
+            print('Errore nel formato, linea ignorata')
 
 
 main()
