@@ -2,6 +2,7 @@
 from operator import itemgetter
 
 FILE_NAME = '20201214_QDV2020_001.csv'
+FILE_INDICATORE = 'indicatore.txt'
 
 
 def leggi_dati(nome_file):
@@ -62,24 +63,22 @@ def main():
     for i in range(len(indicatori)):
         print(f'{i + 1:2d}. {indicatori[i]}')
 
-    # Acquisisci il valore scelto nella variabile 'scelta'
-    ok = False
-    while not ok:
-        try:
-            scelta = int(input('Inserisci l\'indicatore: '))
+    # Acquisisci l'indicatore scelto dal file
+    try:
+        ind_file = open(FILE_INDICATORE, 'r')
+        indicatore = ind_file.readline().rstrip()
+        ind_file.close()
+    except IOError:
+        print('Impossibile leggere l\'indicatore dal file')
+        exit()
 
-            if scelta < 1 or scelta > len(indicatori):
-                print('Il valore inserito deve essere compreso tra 1 e ' + str(len(indicatori)))
-            else:
-                ok = True
-
-        except ValueError:
-            print('Devi inserire un numero intero')
-
-    classifica = calcola_classifica(dati, indicatori[scelta-1])
-    print(f"Classifica secondo l'indicatore '{indicatori[scelta-1]}': ")
-    for record in classifica:
-        print(f"{record['provincia']:22} : {record['valore']}")
+    if indicatore not in indicatori:
+        print(f"L'indicatore {indicatore} non è definito nel file")
+    else:
+        classifica = calcola_classifica(dati, indicatore)
+        print(f"Classifica secondo l'indicatore '{indicatore}': ")
+        for record in classifica:
+            print(f"{record['provincia']:22} : {record['valore']}")
 
 
 
