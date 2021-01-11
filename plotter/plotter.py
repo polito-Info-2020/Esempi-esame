@@ -1,5 +1,6 @@
 # Soluzione proposta esercizio "Plotter"
 
+FILE_PLOTTER = 'plotter.txt'
 LATO = 5
 
 
@@ -66,14 +67,12 @@ def disegna(riquadro, file):
 
 def main():
     riquadro = crea_riquadro(LATO)
-    stampa_riquadro(riquadro)
+    # stampa_riquadro(riquadro)
 
-    file_name = input('Inserisci il nome del file con il disegno: ')
-    file = open(file_name, 'r')
+    file = open(FILE_PLOTTER, 'r')
     disegna(riquadro, file)
     file.close()
 
-    print('Il disegno risultante è:')
     stampa_riquadro(riquadro)
 
 

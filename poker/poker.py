@@ -24,7 +24,7 @@ def genera_mazzo():
 def salva_mazzo(file_name, mazzo):
     try:
         file = open(file_name, 'w')
-    except:
+    except IOError:
         print('Impossibile creare il file')
         return
 
@@ -35,19 +35,20 @@ def salva_mazzo(file_name, mazzo):
 
 
 def mescola_mazzo(mazzo):
-    # shuffle(mazzo)  # la funzione random.shuffle fa già tutto da sola
-    # altrimenti si può realizzare "a mano"
+    shuffle(mazzo)  # la funzione random.shuffle fa già tutto da sola
 
-    # sposto tutte le carte in un altro mazzo
-    vecchio_mazzo = list(mazzo)
-    mazzo.clear()
+    # altrimenti si può realizzare "a mano", come indicato nel blocco commentato di seguito:
 
-    while len(vecchio_mazzo) > 0:
-        # scelgo una carta a caso
-        pos = randint(0, len(vecchio_mazzo) - 1)
-        # la sposto dall'altro mazzo a quello principale
-        mazzo.append(vecchio_mazzo[pos])
-        vecchio_mazzo.pop(pos)
+    # # sposto tutte le carte in un altro mazzo
+    # vecchio_mazzo = list(mazzo)
+    # mazzo.clear()
+    #
+    # while len(vecchio_mazzo) > 0:
+    #     # scelgo una carta a caso
+    #     pos = randint(0, len(vecchio_mazzo) - 1)
+    #     # la sposto dall'altro mazzo a quello principale
+    #     mazzo.append(vecchio_mazzo[pos])
+    #     vecchio_mazzo.pop(pos)
 
 
 def estrai_5_carte(mazzo):
@@ -115,8 +116,8 @@ def is_scala(mano):
             or valori == {'9', '10', 'J', 'Q', 'K'}
             or valori == {'10', 'J', 'Q', 'K', 'A'}):
         return True
-    ## NOTA:  anziché elencare le 4 scale possibili, si potrebbe iterare su degli slice di VALORI
-    ## così: valori == set( VALORI[i:i+5] ) , al variare di i
+    # NOTA:  anziché elencare le 4 scale possibili, si potrebbe iterare su degli slice di VALORI
+    # così: valori == set( VALORI[i:i+5] ) , al variare di i
 
     return False
 
